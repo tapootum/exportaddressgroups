@@ -1,7 +1,34 @@
 <html>
-	<form action="index2.php" method="post">
-		User: <input type="text" name="user" />
-		Group: <input type="text" name="group" />
-	    <input type="submit" />
-	</form>
+<head>
+<title>TaPooTum  Export Address group Squirrelmail to csv</title>
+</head>
+<body>
+
+<?
+$objConnect = mysql_connect("localhost","root","kawaoisoki") or die("Error Connect to Database");
+$objDB = mysql_select_db("mail");
+$strSQL = "SELECT DISTINCT owner FROM address";
+$objQuery = mysql_query($strSQL) or die ("Error Query [".$strSQL."]");
+?>
+<form method="get">
+<table border="1">
+  <tr>
+    <th> <div align="center">User</div></th>
+  </tr>
+
+<?
+while($objResult = mysql_fetch_array($objQuery))
+{
+?>
+  <tr>
+    <td align="center"><a href='index1.php?user=<?=$objResult["owner"];?>'><?=$objResult["owner"];?></a></td>
+  </tr>
+<?
+}
+?>
+ </table>
+</form>
+
+
+</body>
 </html>

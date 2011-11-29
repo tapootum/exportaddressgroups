@@ -4,8 +4,8 @@
 </head>
 <body>
 <?
-$user = $_POST["user"];
-$group = $_POST["group"];
+$user = $_GET["user"];
+$group = $_GET["group"];
 $objConnect = mysql_connect("localhost","root","kawaoisoki") or die("Error Connect to Database");
 $objDB = mysql_select_db("mail");
 $strSQL = "SELECT address.*,addressgroups.* FROM address,addressgroups ".
