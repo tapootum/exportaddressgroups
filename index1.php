@@ -6,7 +6,7 @@
 <?
 $user = $_GET["user"];
 $group = $_GET["group"];
-$objConnect = mysql_connect("localhost","root","kawaoisoki") or die("Error Connect to Database");
+$objConnect = mysql_connect("localhost","root","pass") or die("Error Connect to Database");
 $objDB = mysql_select_db("mail");
 $strSQL = "SELECT address.*,addressgroups.* FROM address,addressgroups ".
 	  "WHERE addressgroups.nickname = address.nickname and  addressgroups.owner = '$user' and address.owner = addressgroups.owner ORDER BY addressgroups.addressgroup";
@@ -82,7 +82,7 @@ for ($j=0;$j<$i;$j++){
 	$path = "csv/".$filName;
 	$objWrite = fopen($path, "w+");
 
-	$objConnect = mysql_connect("localhost","root","kawaoisoki") or die("Error Connect to Database");
+	$objConnect = mysql_connect("localhost","root","pass") or die("Error Connect to Database");
 	$objDB = mysql_select_db("mail");
 	$strSQL = "SELECT address.*,addressgroups.* FROM address,addressgroups WHERE addressgroups.nickname = address.nickname and ".
 		  "addressgroups.owner = '$user' and address.owner = addressgroups.owner and ".
