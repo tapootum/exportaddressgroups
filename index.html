@@ -5,7 +5,7 @@
 <body>
 
 <?
-$objConnect = mysql_connect("localhost","root","kawaoisoki") or die("Error Connect to Database");
+$objConnect = mysql_connect("localhost","root","pass") or die("Error Connect to Database");
 $objDB = mysql_select_db("mail");
 $strSQL = "SELECT DISTINCT owner FROM address";
 $objQuery = mysql_query($strSQL) or die ("Error Query [".$strSQL."]");
