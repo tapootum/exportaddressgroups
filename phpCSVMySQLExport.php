@@ -7,7 +7,7 @@
 $filName = "customer.csv";
 $objWrite = fopen($filName, "w");
 
-$objConnect = mysql_connect("localhost","root","kawaoisoki") or die("Error Connect to Database");
+$objConnect = mysql_connect("localhost","root","P@ssw0rd") or die("Error Connect to Database");
 $objDB = mysql_select_db("mail");
 $strSQL = "SELECT address.*,addressgroups.* FROM address,addressgroups WHERE addressgroups.nickname = address.nickname and  addressgroups.owner = '$user' and address.owner = addressgroups.owner";
 $objQuery = mysql_query($strSQL) or die ("Error Query [".$strSQL."]");
